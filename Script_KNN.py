@@ -49,8 +49,10 @@ def splitTrainTest(data, percentajeTrain):
     Takes a pandas dataframe and a percentaje (0-1)
     Returns both train and test sets
     """
-
-    return()
+    msk = np.random.rand(len(data)) < percentajeTrain
+    train = data[msk]
+    test = data[~msk]
+    return train, test
 
 def kFoldCV(data, K):
     """
